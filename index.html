@@ -20,40 +20,40 @@
 <body>
 
     <div id="clock">
-        <span id="hours">00</span>
+        <span>0<span id="hours">00</span></span>
         <span>:</span>
-        <span id="minutes">0</span>
+        <span>0<span id="minutes">0</span></span>
         <span>:</span>
-        <span id="sec">0</span>
+       <span>0<span id="sec">0</span></span>
     </div>
     <script>
-            let second = 0;
-            let min = 0;
-            setInterval(() => {
-                if (second >= 6) {
+        let second = 0;
+        let min = 0;
+        let hrs = 0;
+        setInterval(() => {
+            if (second >= 6) {
                 second = 1;
-                }
-                let secTime = document.getElementById('sec');
-                let minTime = document.getElementById('minutes');
-                let hrsTime = document.getElementById('minutes');
-                let hours = hrsTime.innerHTML;
-                //minutes 
-                let minutes = minTime.innerHTML;
-                    secTime.innerHTML = second ;
-                    second++
-                if(second == 6){
-                    min++
-                }
-                if(min > 5){
-                    min = 1;
-                }
-                minTime.innerHTML = min;
-                
+            }
+            let secTime = document.getElementById('sec');
+            let minTime = document.getElementById('minutes');
+            let hrsTime = document.getElementById('hours');
+            let hours = hrsTime.innerHTML;
+            //minutes 
+            let minutes = minTime.innerHTML;
             
-            }, 1000)
+            second++
+            if (second == 6 ) {
+                min++;
+            }
+            if (min > 5 || min == 6) {
+                min = 1;
+                hrs++;
+            }
+            secTime.innerHTML = second;
+            minTime.innerHTML = min;
+            hrsTime.innerHTML = hrs;
 
-        
-            
+        }, 1000)
     </script>
 </body>
 
