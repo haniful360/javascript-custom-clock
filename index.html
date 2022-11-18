@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Custom Clock</title>
     <style>
         #clock {
             display: flex;
@@ -20,39 +20,43 @@
 <body>
 
     <div id="clock">
-        <span>0<span id="hours">00</span></span>
+        <span>0<span id="hours">0</span></span>
         <span>:</span>
         <span>0<span id="minutes">0</span></span>
         <span>:</span>
        <span>0<span id="sec">0</span></span>
+       
     </div>
     <script>
         let second = 0;
         let min = 0;
         let hrs = 0;
         setInterval(() => {
-            if (second >= 6) {
-                second = 1;
-            }
             let secTime = document.getElementById('sec');
             let minTime = document.getElementById('minutes');
             let hrsTime = document.getElementById('hours');
-            let hours = hrsTime.innerHTML;
-            //minutes 
+            if (second == 5) {
+                second = 0;
+            }
+            second++;
             let minutes = minTime.innerHTML;
-            
-            second++
-            if (second == 6 ) {
+            if (second == 5 ) {
                 min++;
             }
-            if (min > 5 || min == 6) {
+            //hours and minutes 
+            let hours = hrsTime.innerHTML;
+            if (min == 5) {
                 min = 1;
                 hrs++;
             }
+            // differnt way
+            // if (min > 5 || min == 5) {
+            //     min = 1;
+            //     hrs++;
+            // }
             secTime.innerHTML = second;
             minTime.innerHTML = min;
             hrsTime.innerHTML = hrs;
-
         }, 1000)
     </script>
 </body>
